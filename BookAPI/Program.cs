@@ -1,4 +1,5 @@
 using BookAPI.Models;
+using BookAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-IServiceCollection serviceCollection = builder.Services.AddDbContext<BookContext>(x => x.UseSqlite("Data Source=books.db"));
+IServiceCollection serviceCollection = builder.Services.AddDbContext<BooksContext>(x => x.UseSqlite("Data Source=books.db"));
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
