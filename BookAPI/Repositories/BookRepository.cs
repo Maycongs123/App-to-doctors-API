@@ -42,9 +42,22 @@ namespace BookAPI.Repositories
             return await _context.Books.FindAsync(id);
         }
 
-        public async Task Update(Books book)
+        public async Task Update(Books book, int id)
         {
-            _context.Entry(book).State = EntityState.Modified;
+            try
+            {
+                Books findBook = await _context.Books.FindAsync(id);
+
+                if (findBook != null)
+                {
+                    // Monitora as mudanças no objeto "findBook"
+                    _context.Entry(findBook).CurrentValues.SetValues(book);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
 
             await _context.SaveChangesAsync();
         }

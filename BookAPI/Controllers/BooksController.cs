@@ -52,12 +52,12 @@ namespace BookAPI.Controllers
         [HttpPut]
         public async Task<ActionResult<Books>> PutBooks([FromBody] Books book, int id)
         {
-            if (id == book.Id)
+            if (id != book.Id)
             {
                 return BadRequest();
 
             }
-            await _bookRepository.Update(book);
+            await _bookRepository.Update(book, id);
             return NoContent();
         }
     }

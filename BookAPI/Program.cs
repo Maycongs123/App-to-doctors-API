@@ -11,7 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-IServiceCollection serviceCollection = builder.Services.AddDbContext<BooksContext>(x => x.UseSqlite("Data Source=books.db"));
+//IServiceCollection serviceCollection = builder.Services.AddDbContext<BooksContext>(x => x.UseSqlServer("ConnectionStrings"));
+builder.Services.AddDbContext<BooksContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("connectionDataBase"));
+});
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 var app = builder.Build();
 
