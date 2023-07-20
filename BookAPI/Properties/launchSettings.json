@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "BookAPI": {
+    "DoctorAPI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
