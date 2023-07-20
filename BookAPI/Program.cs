@@ -87,8 +87,8 @@ builder.Services.AddScoped<IMedicamentoRepository, MedicamentoRepository>();
 builder.Services.AddScoped<IMedicamentoService, MedicamentoService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
-builder.Services.AddScoped<ILoginService, LoginService>();
-builder.Services.AddScoped<ILoginRepository, LoginRepository>();
+//builder.Services.AddScoped<ILoginService, LoginService>();
+//builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 
 
 
