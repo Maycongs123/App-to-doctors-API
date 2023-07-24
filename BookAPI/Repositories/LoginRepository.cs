@@ -17,7 +17,7 @@ namespace DoctorAPI.Repositories
 
         public List<Usuario> Get(Login login)
         {         
-            var users = _context.Usuarios
+            var users = _context.Usuario
                 .Where(u => u.Email == login.Email && u.Password == login.Password)
                 .ToList();
 

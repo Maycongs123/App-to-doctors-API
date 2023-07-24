@@ -7,18 +7,21 @@ namespace DoctorAPI.Services
 {
     public class LoginService : ILoginService
     {
-        private readonly LoginRepository _loginRepository;
+        private readonly ILoginRepository _loginRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        public LoginService(LoginRepository loginRepository)
+        public LoginService(ILoginRepository loginRepository, IUsuarioRepository usuarioRepository)
         {
             _loginRepository = loginRepository;
+            _usuarioRepository = usuarioRepository;
         }
         public Usuario Get(Login login)
         {
             try
             {
-                var users = _loginRepository.Get(login);
-                var user = users.FirstOrDefault();
+                //var users = _loginRepository.Get(login);
+                //var user = users.FirstOrDefault();
+                var user = _usuarioRepository.GetByLogin(login);
                 return user;
             }
             catch (Exception exception)

@@ -14,5 +14,7 @@ namespace DoctorAPI.Repositories.Interface
 
         Task Delete(int id);
 
+        Usuario GetByLogin(Login login);
+
     }
 }

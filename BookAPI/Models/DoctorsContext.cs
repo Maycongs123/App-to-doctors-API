@@ -10,6 +10,6 @@ namespace DoctorAPI.Models
         }
 
         public DbSet<Medicamento> Medicamentos { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }        
+        public DbSet<Usuario> Usuario { get; set; }        
     }
 }

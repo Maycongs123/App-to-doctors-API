@@ -3,12 +3,15 @@ using DoctorAPI.Repositories;
 using DoctorAPI.Repositories.Interface;
 using DoctorAPI.Services;
 using DoctorAPI.Services.Interface;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class MedicamentosController : ControllerBase
     {
         private readonly IMedicamentoService _medicamentoService;

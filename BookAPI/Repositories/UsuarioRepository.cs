@@ -16,7 +16,7 @@ namespace DoctorAPI.Repositories
 
         public async Task<Usuario> Create(Usuario usuario)
         {
-            _context.Usuarios.Add(usuario);
+            _context.Usuario.Add(usuario);
 
             await _context.SaveChangesAsync();
 
@@ -25,28 +25,28 @@ namespace DoctorAPI.Repositories
 
         public async Task Delete(int id)
         {
-            var usuarioToDelete = await _context.Usuarios.FindAsync(id);
+            var usuarioToDelete = await _context.Usuario.FindAsync(id);
 
-            _context.Usuarios.Remove(usuarioToDelete);
+            _context.Usuario.Remove(usuarioToDelete);
 
             await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Usuario>> GetAll()
         {
-          return await  _context.Usuarios.ToListAsync();
+          return await  _context.Usuario.ToListAsync();
         }
 
         public async Task<Usuario> GetById(int id)
         {
-            return await _context.Usuarios.FindAsync(id);
+            return await _context.Usuario.FindAsync(id);
         }
 
         public async Task Update(Usuario usuario, int id)
         {
             try
             {
-                Usuario findUsuario = await _context.Usuarios.FindAsync(id);
+                Usuario findUsuario = await _context.Usuario.FindAsync(id);
 
                 if (findUsuario != null)
                 {
@@ -60,6 +60,22 @@ namespace DoctorAPI.Repositories
             }
 
             await _context.SaveChangesAsync();
+        }
+
+        public Usuario GetByLogin(Login login)
+        {
+            try
+            {
+                var user = _context.Usuario.FirstOrDefault(u => u.Email == login.Email && u.Password == login.Password);
+
+                return user;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+          
         }
     }
 }

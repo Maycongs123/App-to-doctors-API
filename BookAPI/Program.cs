@@ -87,8 +87,9 @@ builder.Services.AddScoped<IMedicamentoRepository, MedicamentoRepository>();
 builder.Services.AddScoped<IMedicamentoService, MedicamentoService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
-//builder.Services.AddScoped<ILoginService, LoginService>();
-//builder.Services.AddScoped<ILoginRepository, LoginRepository>();
+builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<ILoginRepository, LoginRepository>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 
 
@@ -106,7 +107,9 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseAuthorization();
 app.UseCors("AllowAnyOrigin");
+
+app.MapControllers();
 
 app.Run();
