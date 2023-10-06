@@ -10,6 +10,22 @@ namespace DoctorAPI.Models
 
         public string? MedicamentoUso { get; set; }
 
+        public string? CalculoRenal { get; set; }
+
+        public string? Faixa_Hemodialise_Horario { get; set; }
+
+        public int? Valor_1_ClearanceCreatinina { get; set; }
+
+        public int? Valor_2_ClearanceCreatinina { get; set; }
+
+        public int? Valor_3_ClearanceCreatinina { get; set; }
+
+        public string? Faixa_1_HorarioClCr { get; set; }
+
+        public string? Faixa_2_HorarioClCr { get; set; }
+
+        public string? Faixa_3_HorarioClCr { get; set; }
+
         public string? Tipo { get; set; }
 
         public string? dosagemTipo { get; set; }
