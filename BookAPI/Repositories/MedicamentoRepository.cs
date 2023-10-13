@@ -68,6 +68,7 @@ namespace DoctorAPI.Repositories
                 throw exception;
             }
 
+
             await _context.SaveChangesAsync();
         }
     }
