@@ -34,7 +34,16 @@ namespace DoctorAPI.Repositories
 
         public async Task<IEnumerable<Medicamento>> GetAll()
         {
-          return await  _context.Medicamentos.ToListAsync();
+            try
+            {
+               var result = await _context.Medicamentos.ToListAsync();
+               
+               return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task<Medicamento> GetById(int id)

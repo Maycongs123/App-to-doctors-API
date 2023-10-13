@@ -34,11 +34,11 @@ namespace DoctorAPI.Models
 
         public string? Faixa_3_HorarioClCr { get; set; }
 
-        public int DosagemMaxima { get; set; }
+        public int? DosagemMaxima { get; set; }
 
-        public int VariacaoMinimaDosagemMaxima { get; set; }
+        public int? VariacaoMinimaDosagemMaxima { get; set; }
 
-        public int VariacaoMaximaDosagemMaxima { get; set; }
+        public int? VariacaoMaximaDosagemMaxima { get; set; }
 
         public string? Tipo { get; set; }
 
